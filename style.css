@@ -1,0 +1,203 @@
+/* style.css
+   Vertical, centered input layout for Dynamic To-Do List
+   Author: Rohit Kumar
+   Date: 2026-04-02
+*/
+
+:root{
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --accent:#2b7a78;
+  --muted:#6b7280;
+  --danger:#e63946;
+  --success:#2a9d8f;
+  --shadow: 0 6px 18px rgba(16,24,40,0.06);
+  --radius:12px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#0f172a;
+  display:flex;
+  min-height:100vh;
+  align-items:center;
+  justify-content:center;
+  padding:32px 16px;
+}
+
+.container{
+  width:100%;
+  max-width:720px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+
+/* Header */
+.app-header{
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.app-header h1{
+  margin:0;
+  font-size:1.6rem;
+  color:var(--accent);
+}
+
+.app-desc{
+  margin:6px 0 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* Input area stacked vertically and centered */
+.input-area{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:8px;
+  align-items:center; /* center the input/button block */
+}
+
+/* Make the input and button share the same max width */
+.input-area > *{
+  width:100%;
+  max-width:520px;
+}
+
+/* Input styling */
+#taskInput{
+  padding:14px 16px;
+  border:1px solid #e6e9ef;
+  border-radius:10px;
+  font-size:1rem;
+  outline:none;
+  transition:box-shadow .15s, border-color .15s;
+  width:100%;
+}
+
+#taskInput:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 6px rgba(43,122,120,0.06);
+}
+
+/* Button styling: full-width block look on desktop and mobile */
+#addBtn{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:12px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:1rem;
+  width:100%;
+  box-shadow:0 2px 6px rgba(43,122,120,0.12);
+}
+
+/* Counters */
+.counters{
+  display:flex;
+  gap:12px;
+  margin:14px 0;
+  color:var(--muted);
+  font-size:0.95rem;
+  justify-content:center;
+}
+
+/* Task list */
+.list-area{
+  margin-top:8px;
+}
+
+#taskList{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.task-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #eef2f6;
+  background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,250,0.6));
+}
+
+.task-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:1;
+  min-width:0;
+}
+
+.task-text{
+  font-size:1rem;
+  color:#0f172a;
+  word-break:break-word;
+}
+
+.task-text.completed{
+  text-decoration:line-through;
+  color:var(--muted);
+  opacity:0.85;
+}
+
+.task-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.icon-btn{
+  background:transparent;
+  border:1px solid transparent;
+  padding:6px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:0.9rem;
+}
+
+.icon-btn.edit{
+  color:#0f172a;
+  border-color:#e6e9ef;
+}
+
+.icon-btn.delete{
+  color:var(--danger);
+  border-color:rgba(230,57,70,0.08);
+}
+
+.icon-btn.save{
+  color:var(--success);
+  border-color:rgba(42,157,143,0.08);
+}
+
+/* Accessibility helper (visually hidden label) */
+.visually-hidden{
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  .container{padding:18px}
+  #taskInput{padding:12px}
+  #addBtn{padding:12px}
+  .input-area > *{max-width:100%}
+}

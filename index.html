@@ -1,0 +1,40 @@
+<!--
+Project: Dynamic To-Do List
+Author: Rohit Kumar
+Date: 2026-04-02
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Dynamic To-Do List</h1>
+    <p class="app-desc">A simple, dynamic to-do list app with add, edit, delete, and completion tracking.</p>
+    <p class="copyright">© Rohit Kumar</p>
+  </header>
+
+  <main class="container">
+    <section class="input-area">
+      <label for="taskInput" class="visually-hidden">Enter a new task</label>
+      <input id="taskInput" type="text" placeholder="Enter a new task" aria-label="Task input" />
+      <button id="addBtn" type="button">Add Task</button>
+    </section>
+
+    <section class="counters">
+      <span id="pendingCount">Pending: 0</span>
+      <span id="completedCount">Completed: 0</span>
+    </section>
+
+    <section class="list-area">
+      <ul id="taskList" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
